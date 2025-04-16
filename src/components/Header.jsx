@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import Button from "./Button";
 import Underline from "./Underline";
@@ -53,7 +53,7 @@ const Header = () => {
             <div className="form-control">
               <Button
                 text="Resume"
-                link={`https://drive.google.com/file/d/1lynEw_D0cVoMP62E8M_pAY1YvC6gKd8G/view?usp=drive_link`}
+                link={`https://drive.google.com/file/d/1jPbySAxdu8BtcHap8ZzKaDly5H5PEFRi/view?usp=drive_link`}
               />
             </div>
           </div>
