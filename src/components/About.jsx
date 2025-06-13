@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
+import { motion  } from "framer-motion";
 import Underline from "./Underline";
 
 const About = () => {
   const data = {
     title: "Aspiring Java Developer...",
-    desc1: `I am an aspiring software developer with a strong foundation in Java and a passion for building efficient, user-friendly applications.`,
-    desc2: `🎓 Currently pursuing a Bachelor's degree in Computer Science Engineering at Priyadarshini J.L. College of Engineering, Nagpur.`,
-    desc3: `I am detail-oriented and highly motivated to explore innovative technologies, gain hands-on industry experience, and continuously enhance my skills. My goal is to create impactful solutions that bridge creativity and functionality.`,
+    desc1: `I am a passionate software developer with a strong foundation in Java and a drive for building efficient, user-friendly applications.`,
+    desc2: `🎓 Recently completed my Bachelor's degree in Computer Science Engineering from Priyadarshini J.L. College of Engineering, Nagpur (Class of 2025).`,
+    desc3: `I’m a detail-oriented and motivated developer eager to explore innovative technologies, gain real-world industry experience, and continually enhance my skills. My goal is to build impactful solutions that blend creativity with functionality.`,
     about: {
       name: "Akshay Kathwate",
       email: "Akshaykathwate1421@gmail.com",
@@ -14,16 +14,17 @@ const About = () => {
   };
 
   const skills = [
-    "Core Java",
-    "Servlet",
-    "JSP",
-    "JDBC",
-    "Spring MVC",
-    "Hibernate",
+    "Java",
     "Spring Boot",
-    "C++",
+    "Microservices",
+    "REST APIs",
+    "OOPS",
     "React",
+    "MySQL",
     "JavaScript",
+    "HTML",
+    "CSS",
+    "Git",
   ];
 
   return (
@@ -37,7 +38,7 @@ const About = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="text-center text-slate-200 text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
+        className="text-center text-yellow-200 text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
       >
         <Underline text="About Me" />
       </motion.h1>

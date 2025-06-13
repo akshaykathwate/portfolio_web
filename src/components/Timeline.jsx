@@ -45,7 +45,7 @@ const Timeline = () => {
             { year: "2021", text: "Completed HSC with 92% aggregate" },
             {
               year: "2025",
-              text: "Pursuing B.Tech (8th Semester) with a current aggregate of 74.86%",
+              text: " 🎓 Completed B.Tech with a current aggregate of 74.86% CGPA",
             },
           ].map((item, index) => (
             <motion.li

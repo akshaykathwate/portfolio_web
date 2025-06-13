@@ -40,7 +40,7 @@ const CodingAchievements = () => {
   return (
     <motion.div
       onHoverStart={() => setIsAnimated(true)} // Triggers animation only once
-      className="p-8 bg-white bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-80 shadow-2xl backdrop-blur-md border border-gray-300 dark:border-gray-700 h-screen"
+      className="p-8 bg-white bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-80 shadow-2xl backdrop-blur-md border border-gray-300 dark:border-gray-700 "
     >
       {/* Title */}
       <motion.h3

@@ -1,7 +1,6 @@
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Typed from "typed.js";
-import { SiHackerrank } from "react-icons/si"; // Import HackerRank Icon
 import BannerImage from "../assets/ProfileImg2.jpg";
 
 const Profile = () => {
@@ -22,7 +21,7 @@ const Profile = () => {
   const socialIcons = [
     {
       iconClass: "fa-solid fa-code",
-      link: "https://www.codingninjas.com/studio/profile/AkshayKathwate",
+      link: "https://leetcode.com/u/akshaykathwate/",
     },
     {
       iconClass: "fa-brands fa-linkedin-in",
@@ -59,7 +58,6 @@ const Profile = () => {
           problem-solving, I aim to contribute to innovative projects while
           growing my technical skills.
         </p>
-
 
         {/* Social Icons */}
         <div className="icons-container flex space-x-6 items-center justify-center md:justify-start mt-6">

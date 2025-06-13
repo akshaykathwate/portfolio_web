@@ -6,6 +6,13 @@ import Underline from "./Underline";
 const Projects = () => {
   const [services] = useState([
     {
+      title: "CottonSage - AI Cotton Leaf Disease Detector",
+      description:
+        "A web application that detects cotton leaf diseases using deep learning. Users can upload leaf images to get instant disease identification, symptoms, and prevention tips. Integrated with a Flask API and powered by a trained MobileNetV2 model.",
+      link: "https://github.com/akshaykathwate/cottonSage",
+      technologies: "React, Flask, TensorFlow, MobileNetV2, Spring Boot",
+    },    
+    {
       title: "Video Streaming Application",
       description:
         "Developed a scalable video streaming application leveraging Spring Boot, React, and FFmpeg, with video chunking for seamless playback. Integrated HLS.js and Video.js for adaptive streaming and a user-friendly interface styled with Tailwind CSS. Designed for high performance and cross-platform compatibility, enabling efficient video delivery.",

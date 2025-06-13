@@ -53,7 +53,7 @@ const Header = () => {
             <div className="form-control">
               <Button
                 text="Resume"
-                link={`https://drive.google.com/file/d/1jPbySAxdu8BtcHap8ZzKaDly5H5PEFRi/view?usp=drive_link`}
+                link={`https://drive.google.com/file/d/1-vcG1Ou1p7bxWGpfkonPeVi1VLksNxVf/view`}
               />
             </div>
           </div>
