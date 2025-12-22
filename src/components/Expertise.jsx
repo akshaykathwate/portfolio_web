@@ -1,82 +1,85 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { CgChevronDoubleRightO } from "react-icons/cg";
-import Underline from "./Underline";
 
 const Expertise = () => {
-  const frontendSkills = [
-    "JavaScript",
-    "React.js",
-    "AngularJS",
-    "Git & GitHub",
-    "Tailwind CSS",
-    "Bootstrap",
-  ];
-
-  const backendSkills = [
-    "Core Java",
-    "Spring Boot",
-    "Microservices",
-    "Spring MVC",
-    "Hibernate",
-    "MySQL",
-    "Problem Solving",
-    "DSA",
+  const expertises = [
+    {
+      title: "Backend Development",
+      icon: "fa-server",
+      skills: ["Java", "Spring Boot", "Spring MVC", "REST APIs", "Spring Security"]
+    },
+    {
+      title: "Frontend Development",
+      icon: "fa-code",
+      skills: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS"]
+    },
+    {
+      title: "Database",
+      icon: "fa-database",
+      skills: ["MySQL", "PostgreSQL", "JPA/Hibernate"]
+    },
+    {
+      title: "Technologies",
+      icon: "fa-microchip",
+      skills: ["OOP", "DSA", "RESTful APIs", "Design Patterns"]
+    },
+    {
+      title: "Tools",
+      icon: "fa-wrench",
+      skills: ["Git", "IntelliJ IDEA", "VS Code", "Maven", "Postman"]
+    }
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-purple-700 dark:from-gray-900 dark:to-gray-800 py-16 px-6 sm:px-10 lg:px-16">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold text-white">
-          <Underline text="Skills & Expertise" />
-        </h1>
-        <p className="text-lg text-gray-200 mt-4">
-          Showcasing my technical proficiency and the tools I excel at.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl">
-          <h2 className="text-3xl font-semibold mb-4 text-center text-gray-900 dark:text-white">
-            <Underline text="Frontend Development" />
+    <section className="py-20 px-6 bg-white dark:bg-dark-card transition-colors duration-300">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-4">
+            Technical Expertise
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            {frontendSkills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 py-3 px-4 rounded-xl flex items-center justify-center shadow-md"
-              >
-                <CgChevronDoubleRightO className="mr-2 text-lg text-blue-500 dark:text-blue-300" />
-                <span className="font-medium text-base">{skill}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A comprehensive overview of my technical proficiency and toolset.
+          </p>
+        </motion.div>
 
-        <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xl">
-          <h2 className="text-3xl font-semibold mb-4 text-center text-gray-900 dark:text-white">
-            <Underline text="Backend Development" />
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            {backendSkills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 py-3 px-4 rounded-xl flex items-center justify-center shadow-md"
-              >
-                <CgChevronDoubleRightO className="mr-2 text-lg text-blue-500 dark:text-blue-300" />
-                <span className="font-medium text-base">{skill}</span>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {expertises.map((area, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-800 hover:border-primary-500/30 transition-colors group hover:-translate-y-2 duration-300"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:scale-110 transition-transform duration-300">
+                  <i className={`fa-solid ${area.icon} text-xl`}></i>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{area.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {area.skills.map((skill, i) => (
+                  <motion.span
+                    key={i}
+                    whileHover={{ scale: 1.05 }}
+                    className="px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

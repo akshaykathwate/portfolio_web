@@ -1,19 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 import App from './App.jsx'
-import { Scrollbar } from "smooth-scrollbar-react";
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Scrollbar
-      plugins={{
-        overscroll: {
-          effect: "glow",
-        },
-      }}
-    >
+    <Provider store={store}>
       <App />
-    </Scrollbar>
+    </Provider>
   </React.StrictMode>
 );

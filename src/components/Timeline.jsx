@@ -1,74 +1,80 @@
 import { motion } from "framer-motion";
-import { MdCastForEducation } from "react-icons/md";
-import { GiJourney } from "react-icons/gi";
-import Underline from "./Underline";
-
-const timelineVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
+import { MdSchool } from "react-icons/md";
 
 const Timeline = () => {
-  return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={timelineVariants}
-      className="flex flex-col lg:justify-center items-center py-10 px-6 bg-gradient-to-br from-gray-100 to-blue-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100"
-    >
-      <h2 className="text-center text-4xl font-bold mb-8">
-        <Underline text="Qualification" />
-      </h2>
-      <h1 className="text-center text-2xl font-bold mb-8">
-        <div className="flex justify-center items-center gap-3">
-          <GiJourney className="text-blue-600 dark:text-blue-400 text-3xl" />
-          <Underline text="My Personal Journey" />
-        </div>
-      </h1>
+  const education = [
+    {
+      year: "2025",
+      title: "B.Tech in CSE",
+      score: "7.89 CGPA",
+      institute: "Priyadarshini J.L. College of Engi.  ",
+      desc: "Specialized in Computer Science & Engineering with focus on Full Stack Development."
+    },
+    {
+      year: "2021",
+      title: "HSC (Science)",
+      score: "92% ",
+      institute: "State Board",
+      desc: "Major in Physics, Chemistry, and Mathematics (PCM)."
+    },
+    {
+      year: "2019",
+      title: "SSC",
+      score: "80.40% ",
+      institute: "State Board",
+      desc: "Completed secondary education with distinction."
+    },
+  ];
 
-      <div className="flex flex-col w-full max-w-3xl">
+  return (
+    <section className="py-16 px-6 bg-slate-50 dark:bg-dark-bg transition-colors duration-300">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-xl font-semibold text-slate-700 dark:text-slate-200 p-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
         >
-          <div className="flex justify-start items-center gap-2">
-            <MdCastForEducation className="text-blue-600 dark:text-blue-400 text-2xl" />
-            <Underline text="Education:" />
-          </div>
+          <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white flex items-center justify-center gap-3">
+            <span className="p-2 bg-primary-100 dark:bg-primary-900/30 rounded-lg text-primary-600 dark:text-primary-400">
+              <MdSchool className="text-2xl" />
+            </span>
+            Education Journey
+          </h2>
         </motion.div>
 
-        <ul className="relative border-l-4 border-blue-400 dark:border-blue-300 ml-4 mt-4">
-          {[
-            { year: "2019", text: "Completed SSC with 80.40% aggregate" },
-            { year: "2021", text: "Completed HSC with 92% aggregate" },
-            {
-              year: "2025",
-              text: " 🎓 Completed B.Tech with a current aggregate of 74.86% CGPA",
-            },
-          ].map((item, index) => (
-            <motion.li
+        <div className="grid md:grid-cols-3 gap-6">
+          {education.map((item, index) => (
+            <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="mb-6 ml-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 relative overflow-hidden group"
             >
-              <div className="absolute -left-3 h-6 w-6 bg-blue-500 dark:bg-blue-300 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
-                <h3 className="font-bold text-lg text-blue-600 dark:text-blue-300">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <MdSchool className="text-6xl text-primary-500" />
+              </div>
+
+              <div className="relative z-10">
+                <span className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-wider text-primary-600 dark:text-primary-400 uppercase bg-primary-50 dark:bg-primary-900/20 rounded-full">
                   {item.year}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-200 mt-1">
-                  {item.text}
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-3">{item.institute} 
+                  • <span className="text-primary-600 dark:text-primary-400">{item.score}</span></p>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  {item.desc}
                 </p>
               </div>
-            </motion.li>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

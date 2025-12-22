@@ -1,96 +1,94 @@
-import { motion  } from "framer-motion";
-import Underline from "./Underline";
+import { motion } from "framer-motion";
 
 const About = () => {
   const data = {
-    title: "Aspiring Java Developer...",
-    desc1: `I am a passionate software developer with a strong foundation in Java and a drive for building efficient, user-friendly applications.`,
-    desc2: `🎓 Recently completed my Bachelor's degree in Computer Science Engineering from Priyadarshini J.L. College of Engineering, Nagpur (Class of 2025).`,
-    desc3: `I’m a detail-oriented and motivated developer eager to explore innovative technologies, gain real-world industry experience, and continually enhance my skills. My goal is to build impactful solutions that blend creativity with functionality.`,
+    title: "About Me",
+    desc1: `I am a Computer Science graduate focused on backend and full-stack development using Java and Spring Boot.`,
+    desc2: `I have built end-to-end systems including REST APIs, authentication, database-driven applications, and frontend integrations using React. My projects involve real-world concerns like API design, security, file handling, and performance optimization.`,
+    desc3: `I am actively seeking an entry-level backend or full-stack role where I can work on production systems, write clean code, and grow under real engineering constraints.`,
     about: {
       name: "Akshay Kathwate",
-      email: "Akshaykathwate1421@gmail.com",
+      email: "akshaykathwate1421@gmail.com",
     },
   };
 
+  /* 
+    Updated skills based on request:
+    Backend: Java, Spring Boot, Spring MVC, REST APIs, Spring Security
+    Frontend: React, JavaScript, HTML/CSS, Tailwind CSS
+    Database: MySQL, PostgreSQL, JPA/Hibernate
+  */
   const skills = [
-    "Java",
-    "Spring Boot",
-    "Microservices",
-    "REST APIs",
-    "OOPS",
-    "React",
-    "MySQL",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Git",
+    "Java", "Spring Boot", "REST APIs","Reactjs", "JavaScript", "Nodejs", "Expressjs", "SQL", "HTML/CSS", "Tailwind CSS","Microservices", "OOPS" , "Data Structure & Algorithms",
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white py-16 px-6 min-h-screen flex flex-col justify-center items-center"
-    >
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center text-yellow-200 text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
-      >
-        <Underline text="About Me" />
-      </motion.h1>
+    <section className="py-20 px-6 bg-white dark:bg-dark-card transition-colors duration-300">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-4">
+            <span className="border-b-4 border-primary-500 rounded px-2">About Me</span>
+          </h2>
+        </motion.div>
 
-      <div className="w-full max-w-3xl mt-10 space-y-6 text-center md:text-left">
-        <motion.h2
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-3xl md:text-xl font-bold bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text"
-        >
-          {data.title}
-        </motion.h2>
-        <p className="text-lg leading-relaxed text-gray-300">{data.desc1}</p>
-        <p className="text-lg leading-relaxed text-gray-300">{data.desc2}</p>
-        <p className="text-lg leading-relaxed text-gray-300">{data.desc3}</p>
-      </div>
-
-      <div className="w-full max-w-3xl mt-10 text-center md:text-left">
-        <motion.h3
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl text-slate-200 font-semibold bg-gradient-to-r from-yellow-400 to-red-500 text-transparent bg-clip-text"
-        >
-          <Underline text={data.about.name} />
-        </motion.h3>
-        <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
-          {skills.map((skill, index) => (
-            <motion.span
-              key={index}
-              whileHover={{ scale: 1.2}}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md cursor-pointer transition-transform"
-            >
-              {skill}
-            </motion.span>
-          ))}
-        </div>
-        <motion.p
-          className="text-lg mt-4 text-gray-300"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="font-semibold">Email:</span>{" "}
-          <a
-            href={`mailto:${data.about.email}`}
-            className="text-blue-400 hover:underline transition-all"
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-6"
           >
-            {data.about.email}
-          </a>
-        </motion.p>
+            <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 font-heading">
+              My Journey
+            </h3>
+            <div className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+              <p>{data.desc1}</p>
+              <p>{data.desc2}</p>
+              <p>{data.desc3}</p>
+            </div>
+
+            <div className="pt-4">
+              <a
+                href={`mailto:${data.about.email}`}
+                className="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 font-medium hover:underline"
+              >
+                <i className="fa-regular fa-envelope"></i>
+                <span>{data.about.email}</span>
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-semibold text-slate-800 dark:text-slate-100 font-heading mb-6">
+              Technical Skills
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {skills.map((skill, index) => (
+                <motion.span
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium shadow-sm border border-slate-200 dark:border-slate-700 transition-colors hover:border-primary-500 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 
