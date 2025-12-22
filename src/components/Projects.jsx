@@ -6,7 +6,7 @@ const Projects = () => {
   const [services] = useState([
     {
       title: "Vinterview : Coding-Interview Platform",
-      description: "Collaborative coding platform with VSCode-powered editor, real-time chat, and video rooms. Features secure code execution and automated PR analysis.",
+      description: "Built a full-stack collaborative coding & interview platform with a Code-powered editor, real-time chat, and1-on-1 video rooms.",
       link: "https://github.com/akshaykathwate/vinterview",
       technologies: ["React", "Node.js", "MongoDB", "WebRTC", "Docker"],
       demoLink: "https://vinterview-95srs.sevalla.app",
