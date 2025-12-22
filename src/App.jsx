@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import Header from "./components/Header";
@@ -6,18 +8,30 @@ import Timeline from "./components/Timeline";
 import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import CodingAchievements from "./components/CodingAchievements";
+import Cursor from "./components/Cursor";
+
 function App() {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return (
     <div>
+      <Cursor />
       <Header />
-      <Profile />
-      <About />
+      <section id="home"><Profile /></section>
+      <section id="about"><About /></section>
+      <section id="expertise"><Expertise /></section>
+      <section id="projects"><Projects /></section>
+      <CodingAchievements />
       <Timeline />
-      <Projects />
-      <Expertise />
-      
-      <CodingAchievements/>
-      <Footer/>
+      <Footer />
 
     </div>
   );

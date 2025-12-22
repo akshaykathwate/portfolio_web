@@ -1,24 +1,19 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTheme } from "../store/themeSlice";
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import Button from "./Button";
-import Underline from "./Underline";
+import { routes } from "./Navlist";
 
 const Header = () => {
-  const [darkmode, setDarkmode] = useState(false);
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const dispatch = useDispatch();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (darkmode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkmode]);
-
-  useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,40 +21,54 @@ const Header = () => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`navbar fixed top-0 w-full transition-all duration-300 ${
-        isScrolled ? "bg-transparent" : "bg-slate-100 dark:bg-slate-800"
-      }`}
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 dark:border-slate-800/50 py-3"
+        : "bg-transparent py-5"
+        }`}
     >
-      <div className="flex lg:justify-around p-4">
-        <div className="flex-1">
-          <a className="btn text-xl">
-            <Underline text="Portfolio" />
-          </a>
-        </div>
-        <div className="flex justify-end items-center space-x-4">
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <a href="#" className="text-2xl font-bold tracking-tight font-heading">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">Akshay</span>
+          <span className="text-slate-900 dark:text-white">.dev</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center gap-8">
+          {routes.map((route, index) => (
+            <li key={index}>
+              <a
+                href={route.href}
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              >
+                {route.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center space-x-6">
           <button
-            onClick={() => setDarkmode(!darkmode)}
-            className={`${
-              darkmode ? "bg-white text-slate-600" : "bg-slate-800 text-white"
-            } rounded-full p-2 md:text-2xl`}
+            onClick={() => dispatch(toggleTheme())}
+            className="p-2 rounded-full transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+            aria-label="Toggle Dark Mode"
           >
-            {darkmode ? <MdDarkMode /> : <MdOutlineDarkMode />}
+            {isDarkMode ? <MdOutlineDarkMode className="text-xl" /> : <MdDarkMode className="text-xl" />}
           </button>
-          <div className="flex-none">
-            <div className="form-control">
-              <Button
-                text="Resume"
-                link={`https://drive.google.com/file/d/1g0Q-fG16cw6AwFemTgM-eOy5hxymBKiM/view?usp=sharing`}
-              />
-            </div>
+
+          <div className="hidden md:block">
+            <Button
+              text="Resume"
+              link={`https://drive.google.com/file/d/1-Pmb3BfgFB8xhxjDyryeaQkPPvxWElJf/view?usp=drive_link`}
+              variant="primary"
+            />
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.nav>
   );
 };
 

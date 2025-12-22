@@ -3,103 +3,74 @@ import { motion } from "framer-motion";
 import { SiHackerrank, SiLeetcode } from "react-icons/si";
 
 // Reusable Card Component
-const AchievementCard = ({
-  icon,
-  title,
-  details,
-  borderColor,
-  textColor,
-  bgFrom,
-  bgTo,
-  isActive,
-}) => {
+const AchievementCard = ({ icon, title, details, colorClass }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={isActive ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`flex flex-col items-center justify-center p-6 rounded-2xl shadow-xl backdrop-blur-md bg-gradient-to-br ${bgFrom} ${bgTo} border ${borderColor} transition-all`}
+    <div
+      className={`flex flex-col items-center justify-center p-6 mx-4 w-96 flex-shrink-0 rounded-2xl bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 group hover:shadow-md hover:border-primary-500/30`}
     >
-      <motion.div
-        className={`text-5xl ${textColor} drop-shadow-md`}
-        whileHover={{ rotate: 5 }}
-      >
+      <div className={`text-5xl mb-4 transition-transform duration-300 group-hover:scale-110 ${colorClass}`}>
         {icon}
-      </motion.div>
-      <h4 className={`mt-4 text-xl font-bold ${textColor}`}>{title}</h4>
-      <p className="mt-2 text-lg font-semibold text-gray-800 dark:text-gray-300">
+      </div>
+      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2 text-center whitespace-nowrap">{title}</h4>
+      <p className="text-md font-medium text-slate-600 dark:text-slate-400 text-center">
         {details}
       </p>
-    </motion.div>
+    </div>
   );
 };
 
 const CodingAchievements = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const achievements = [
+    { icon: <SiHackerrank />, title: "MySQL Certification", details: "4 Stars ⭐⭐⭐⭐", colorClass: "text-green-500" },
+    { icon: <SiHackerrank />, title: "Java Certification", details: "4 Stars ⭐⭐⭐⭐", colorClass: "text-green-500" },
+    { icon: <SiLeetcode />, title: "Problems Solved", details: "175+ 🏆", colorClass: "text-yellow-500" },
+    { icon: <SiLeetcode />, title: "Achievements", details: "50 & 100 Days Badges 🎖️", colorClass: "text-yellow-500" },
+    // Duplicating for seamless loop visual if list is short, 
+    // but better to just render the array twice in the marquee track
+  ];
 
   return (
-    <motion.div
-      onHoverStart={() => setIsAnimated(true)} // Triggers animation only once
-      className="p-8 bg-white bg-gradient-to-r dark:from-gray-900 dark:to-gray-800 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-80 shadow-2xl backdrop-blur-md border border-gray-300 dark:border-gray-700 "
-    >
-      {/* Title */}
-      <motion.h3
-        initial={{ opacity: 0, y: -20 }}
-        animate={isAnimated ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="text-3xl font-extrabold text-gray-800 dark:text-gray-100 flex items-center space-x-3"
-      >
-        <SiHackerrank className="text-green-500 text-5xl drop-shadow-lg" />
-        <span>Coding Achievements</span>
-      </motion.h3>
+    <section className="py-20 bg-slate-50 dark:bg-dark-bg transition-colors duration-300 overflow-hidden">
+      <div className="container mx-auto max-w-6xl mb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center justify-center gap-3 mb-4"
+        >
+          <SiHackerrank className="text-green-500 text-4xl" />
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-slate-900 dark:text-white">
+            Coding Achievements
+          </h2>
+        </motion.div>
+      </div>
 
-      {/* Achievements Grid */}
-      <motion.div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* HackerRank Achievements */}
-        <AchievementCard
-          icon={<SiHackerrank />}
-          title="MySQL Certification"
-          details="4 Stars ⭐⭐⭐⭐"
-          borderColor="border-green-400 dark:border-gray-700"
-          textColor="text-green-600"
-          bgFrom="from-green-100"
-          bgTo="to-green-300 dark:from-gray-800 dark:to-gray-900"
-          isActive={isAnimated}
-        />
-        <AchievementCard
-          icon={<SiHackerrank />}
-          title="Java Certification"
-          details="4 Stars ⭐⭐⭐⭐"
-          borderColor="border-green-400 dark:border-gray-700"
-          textColor="text-green-600"
-          bgFrom="from-green-100"
-          bgTo="to-green-300 dark:from-gray-800 dark:to-gray-900"
-          isActive={isAnimated}
-        />
+      <div className="relative w-full overflow-hidden mask-linear-gradient">
+        {/* Helper class for gradient mask effect at edges if needed, otherwise standard overflow-hidden */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-slate-50 dark:from-dark-bg to-transparent"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-slate-50 dark:from-dark-bg to-transparent"></div>
 
-        {/* LeetCode Achievements */}
-        <AchievementCard
-          icon={<SiLeetcode />}
-          title="Problems Solved"
-          details="175+ 🏆"
-          borderColor="border-yellow-400 dark:border-gray-700"
-          textColor="text-yellow-600"
-          bgFrom="from-yellow-100"
-          bgTo="to-yellow-300 dark:from-gray-800 dark:to-gray-900"
-          isActive={isAnimated}
-        />
-        <AchievementCard
-          icon={<SiLeetcode />}
-          title="Achievements"
-          details="50 & 100 Days Badges 🎖️"
-          borderColor="border-yellow-400 dark:border-gray-700"
-          textColor="text-yellow-600"
-          bgFrom="from-yellow-100"
-          bgTo="to-yellow-300 dark:from-gray-800 dark:to-gray-900"
-          isActive={isAnimated}
-        />
-      </motion.div>
-    </motion.div>
+        <motion.div
+          className="flex"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 20,
+              ease: "linear",
+            },
+          }}
+          style={{ width: "max-content" }}
+        >
+          {/* Render list twice for seamless loop */}
+          {[...achievements, ...achievements, ...achievements, ...achievements].map((item, index) => (
+            <AchievementCard key={index} {...item} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
