@@ -33,6 +33,7 @@ function App() {
       <section id="certificates"><Certificates /></section>
       <section id="achievements"><CodingAchievements /></section>
       <section id="timeline"><Timeline /></section>
+      
       <Footer />
 
     </div>
