@@ -8,7 +8,7 @@ const Profile = () => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Java Backend Developer", "Full Stack Engineer", "Problem Solver"],
+      strings: ["Java Developer", "Frontend Developer", "Backend Developer"],
       startDelay: 300,
       typeSpeed: 80,
       backSpeed: 50,

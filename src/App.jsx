@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import Timeline from "./components/Timeline";
 import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
+import Certificates from "./components/Certificates";
 import CodingAchievements from "./components/CodingAchievements";
 import Cursor from "./components/Cursor";
 
@@ -29,8 +30,9 @@ function App() {
       <section id="about"><About /></section>
       <section id="expertise"><Expertise /></section>
       <section id="projects"><Projects /></section>
-      <CodingAchievements />
-      <Timeline />
+      <section id="certificates"><Certificates /></section>
+      <section id="achievements"><CodingAchievements /></section>
+      <section id="timeline"><Timeline /></section>
       <Footer />
 
     </div>

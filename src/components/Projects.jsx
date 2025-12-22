@@ -9,17 +9,19 @@ const Projects = () => {
       description: "Collaborative coding platform with VSCode-powered editor, real-time chat, and video rooms. Features secure code execution and automated PR analysis.",
       link: "https://github.com/akshaykathwate/vinterview",
       technologies: ["React", "Node.js", "MongoDB", "WebRTC", "Docker"],
+      demoLink: "https://vinterview-95srs.sevalla.app",
+
     },
     {
       title: "AgroIntel: Smart Crop & Soil Analyzer",
       description: "Spring Boot REST API handling image predictions and soil analysis. Integrates Python ML models (ResNet) with a Java backend for real-time results.",
-      link: "https://github.com/akshaykathwate/agrointel",
+      link: "https://github.com/akshaykathwate/CottonSage_Frontend",
       technologies: ["Spring Boot", "Deep Learning", "Python", "MySQL", "AWS"],
     },
     {
       title: "Video Streaming Platform",
       description: "High-performance streaming system supporting chunked uploads and HLS playback. Uses FFmpeg for server-side transcoding and normalized MySQL schema.",
-      link: "https://github.com/akshaykathwate/video-streaming",
+      link: "https://github.com/akshaykathwate/spring-video-stream",
       technologies: ["Spring Boot", "FFmpeg", "HLS.js", "MySQL", "Redis"],
     }
   ]);
@@ -75,13 +77,16 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors flex items-center gap-1"
                   >
-                    View Source <i className="fa-brands fa-github"></i>
+                    GitHub <i className="fa-brands fa-github"></i>
                   </a>
-                  <Button
-                    text="Demo"
-                    link={project.link}
-                    variant="outline"
-                  />
+
+                  {project.demoLink && (
+                    <Button
+                      text="Go Live"
+                      link={project.demoLink}
+                      variant="outline"
+                    />
+                  )}
                 </div>
               </div>
             </motion.div>
