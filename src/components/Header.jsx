@@ -62,8 +62,9 @@ const Header = () => {
           <div className="hidden md:block">
             <Button
               text="Resume"
-              link={`https://drive.google.com/file/d/1-Pmb3BfgFB8xhxjDyryeaQkPPvxWElJf/view?usp=drive_link`}
+              link={`https://drive.google.com/file/d/1IKaErJs0ZiW7f2IBjx8BAvlTJsJNgwjj/view?usp=sharing`}
               variant="primary"
+              onClick={() => window.open(link, "_blank")}
             />
           </div>
         </div>
