@@ -24,4 +24,9 @@ export const routes = [
     href: "#projects",
     Icon: IoPricetagsOutline,
   },
+  {
+    title: "Experience",
+    href: "#experience",
+    Icon: IoPricetagsOutline,
+  },
 ];

@@ -12,14 +12,9 @@ const About = () => {
     },
   };
 
-  /* 
-    Updated skills based on request:
-    Backend: Java, Spring Boot, Spring MVC, REST APIs, Spring Security
-    Frontend: React, JavaScript, HTML/CSS, Tailwind CSS
-    Database: MySQL, PostgreSQL, JPA/Hibernate
-  */
+
   const skills = [
-    "Java", "Spring Boot", "REST APIs","Reactjs", "JavaScript", "Nodejs", "Expressjs", "SQL", "HTML/CSS", "Tailwind CSS","Microservices", "OOPS" , "Data Structure & Algorithms",
+    "Java", "Spring Boot", "REST APIs", "Reactjs", "JavaScript", "Nodejs", "Expressjs", "SQL", "HTML/CSS", "Tailwind CSS", "Microservices", "OOPS", "Data Structure & Algorithms",
   ];
 
   return (
